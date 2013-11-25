@@ -1,21 +1,24 @@
-# -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib/', __FILE__)
-$:.unshift lib unless $:.include?(lib)
- 
-require 'bundler/version'
- 
+$:.push File.expand_path("../lib", __FILE__)
+
+# Maintain your gem's version:
+require "exception_logger/version"
+
+# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "exception_logger"
-  s.version     = "0.1.10"
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Chris Wise"]
-  s.email       = ["cwise@murmurinformatics.com"]
-  s.homepage    = "http://github.com/cwise/exception_logger"
-  s.summary     = "Fork of exception_logger gem"
-  s.description = "Fork of exception_logger gem"
- 
-  s.required_rubygems_version = ">= 1.3.6"
- 
-  s.files        = Dir.glob("{lib}/**/*")
-  s.require_path = 'lib'
+  s.version     = ExceptionLogger::VERSION
+  s.authors     = ["Ryan Cheung"]
+  s.email       = ["ryancheung.go@gmail.com"]
+  s.homepage    = "https://github.com/ryancheung/exception_logger"
+  s.summary     = "Log exceptions inside a database table. No avaliable with rails 3.2.x."
+  s.description = "It's evolved from the outdated version 0.11.1 and built with rails engine and is mountable."
+
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.test_files = Dir["test/**/*"]
+
+  s.add_dependency "rails", "~> 4.0.0"
+  # s.add_dependency "jquery-rails"
+
+  s.add_dependency 'will_paginate', '~> 3.0'
+  s.add_development_dependency "sqlite3"
 end
