@@ -2,6 +2,7 @@ module ExceptionLogger
   class LoggedException < ActiveRecord::Base
 
     attr_accessible :exception_class, :controller_name, :action_name, :message, :backtrace, :request
+    #self.table_name = "logged_exceptions"
 
     class << self
       def create_from_exception(controller, exception, data)
